@@ -1,0 +1,1 @@
+box-sizing:border-box;http://www.w3cplus.com/content/css3-box-sizing

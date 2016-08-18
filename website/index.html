@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="风霄圣兮 金霄 霄哥 brotherxiao">
+<title>风霄圣兮</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<style type="text/css">
+*{
+	margin:0;
+	padding:0;
+	border:0px;
+}
+body{
+	background:#eeeeee;
+}
+#content{
+	position:absolute;
+	width:210px;
+	text-align:center;
+	left:50%;
+	top:50%;
+	margin-top:-30px;
+	margin-left:-105px;
+}
+#content p{
+	font-size:1.8em;
+}
+#content p#right{
+	text-align:right;
+	font-size:0.8em;
+}
+</style>
+<script type="text/javascript">
+	function addLoadEvent(func){
+		var oldonload = window.onload;
+		if(typeof window.onload != 'function'){
+			window.onload = func ;	
+		}else{
+			window.onload = function(){
+				oldonload();
+				func();	
+			}
+		}
+	}
+	function setAutoTime(){
+		var autotime = document.getElementById("autotime");
+		var autofulltime = document.getElementById("right");
+		var curTime = new Date();
+		var curDate = curTime.getDate();
+		var curMonth = curTime.getMonth()+1;
+		var curDay = curTime.getDay();
+		
+		var curHours = curTime.getHours();
+		var curMin = curTime.getMinutes();
+		var curSec = curTime.getSeconds();
+		
+		var fullDate = curMonth+":"+curDate+"--"+curHours+":"+curMin+":"+curSec;
+		var curContent = "" ;
+		if(curHours >= 5 && curHours < 9){
+			curContent = "早上好！"
+		}else if(curHours >= 9 && curHours < 12){
+			curContent = "上午好！"
+		}else if(curHours >=12 && curHours < 14){
+			curContent = "中午好！"
+		}else if(curHours >=14 && curHours < 18){
+			curContent = "下午好！"
+		}else if(curHours >= 18 && curHours < 24){
+			curContent = "晚上好！"
+		}else if(curHours >=0 && curHours < 5){
+			curContent = "凌晨，要睡觉了！"
+		}else{
+			curContent = "暂不支持时间提醒！"
+		}
+		autotime.innerHTML = curContent;
+		autofulltime.innerHTML = fullDate;
+	}
+	addLoadEvent(setAutoTime);
+</script>
+</head>
+
+<body>
+<div id="content">
+	<p>你好，<label id="autotime"></label></p>
+    <p id="right">df</p>
+</div>
+</body>
+</html>

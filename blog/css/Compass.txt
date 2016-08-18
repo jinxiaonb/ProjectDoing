@@ -1,0 +1,80 @@
+一、Compass是什么？
+Compass是Sass的工具库（toolkit）
+Sass本身只是一个编译器，Compass在它的基础上，封装了一系列有用的模块和模板，补充Sass的功能。它们之间的关系，有点像javascript和jQuery、Ruby和Rails、Python和Django的关系。
+
+二、安装
+Compass是用Ruby语言开发的，所以安装它之前，必须安装Ruby。
+Ruby安装：Ruby（http://rubyinstaller.org/downloads/），选择的版本最好低于2.x的，高于2.x的目前还有bug。
+Compass安装：
+在CMD命令行中输入gem install compass（windows）
+在命令行模式中输入sudo gem install compass(linux或OS X)
+
+三、项目初始化
+在命令行模式下进入自己的项目根文件，然后在该目录下创建新的compass项目，比如myproject，则命令行键入的是compass create myproject，进入该目录cd myproject。在该项目目录中有config.rb文件，这是该项目的配置文件。还有两个子目录sass和stylesheets，前者存放sass源文件，后者存放编译后的CSS文件。
+
+四、编译
+compass编译命令
+compass compile：该命令在项目根目录下运行，会将sass子目录中的scss文件，编译成CSS文件，保存在stylesheets子目录中。默认带有注释。目录更改可在config.rb文件中配置。只编译发生变动的文件。
+compass compile --output-style compressed：把注释去掉。只编译发生变动的文件。
+compass compile --force：全部文件重新编译。
+compass watch:自动编译，执行该命令，但scss文件改变保存后，compass进行自动编译。
+
+config.rb配置：
+output_style = :expanded 表示编译后保留原格式，其他值有：nested、:compact、:compressed。
+environment指定值，然后output_style指南判断编译模式
+environment = ：development
+output_style = (environment == :production) ? :compressed : :expanded
+
+五、Compass模块
+Compass采用模块结构，不同模块提供不同功能。目前，它内置五个模块：
+reset
+css3
+layout
+typography
+utilities
+
+六、reset模块
+编写自己的样式之前，进行重置浏览器的默认样式。重置样式文件：http://meyerweb.com/eric/tools/css/reset/
+写法：@import "compass/reset"
+@import命令用来指定加载模块，这里就是加载reset模块
+七、CSS3模块
+该模块提供19种CSS3命令，全部命令：http://compass-style.org/reference/compass/css3/
+7.1圆角（border-radius）
+例子：
+@import "compass/css3"
+.rounded{
+@include border-radius(5px);
+}
+@include命令表示调用某个mixin（类似于c语言的宏）
+左上角：
+@include border-corner-radius(top,left,5px);
+7.2透明（opacity）
+@import "compass/css3"
+.opacity{
+@include opacity(0.5);
+}
+7.3行内区块(inline-block)
+@import "compass/css3"
+.inline-block{
+@include inline-block;
+}
+
+八、layout模块
+该模块提供布局功能
+
+九、typography
+该模块提供版式功能
+比如链接颜色link-colors($normal,$hover,$active,$visited,$focus);
+@import "compass/typography";
+a{
+@include link-colors(#00c,#0cc,#c0c,#ccc,#cc0);
+}
+
+十、utilities模块
+该模块提供某些不属于其他模块的功能
+如：清除浮动
+@include clearfix;
+表格：
+@include table-scaffolding
+
+十一、Helper函数

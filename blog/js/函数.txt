@@ -1,0 +1,59 @@
+内建arguments数组:
+function args(){
+return arguments;
+}
+>>>args();
+[]
+>>>args(1,2,3,4,true,'ninji');
+[1,2,3,4,true,'ninji']
+
+预定义函数：
+parseInt()：转换为整型输出，若失败，则返回NaN；第二个参数为要转换的进制数（二进制、八进制、十进制、十六进制）
+parseFloat()：同上，但转换只支持十进制。
+isNaN()：判断输入值是否是个可以参与算术运算的数字。
+isFinite()：既非Infinity也非NaN的数字，字符串中如是有效纯数字的话，先转换成数字再进行判断
+encodeURI()：转义
+decodeURI()：反转义
+encodeURIComponent()
+decodeURIComponent()
+eval()：
+
+alert():有浏览器提供，未在ECMA标准中
+
+
+函数域优先于全局域
+var a = 123;
+function f(){
+alert(a);
+var a = 1;
+alert(a);
+}
+f();
+<<<undefined 1;
+
+函数也是数据
+function f(){return 1;}
+var f = function(){return 1;}//称为函数标识记法
+
+匿名函数：
+回调函数：
+function invoke_and_add(a,b){
+return a()+b();
+}
+function one(){
+return 1;
+}
+function two(){
+return 2;
+}
+invoke_and_add(one,two);
+one和two为回调函数
+
+invoke_and_add(function(){return 1;},function(){return 2;});//匿名回调函数
+
+自调函数：
+(function(){alert('jinxiao');})()
+
+
+
+黑盒函数：

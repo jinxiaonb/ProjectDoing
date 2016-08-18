@@ -1,0 +1,14 @@
+不鼓励使用的元素：<font>、<basefont>、<u>、<strike>、<s>、<center>
+替换元素：
+非替换元素：
+块级元素：div、p、h1--h6、ul、li
+行内元素：span、a、label、strong、em
+
+display:none、block、inline、list-item、inline-block、run-in、table、inline-table、table-row-group、table-header-group、table-footer-group、table-row、table-column-group、table-column、table-cell、table-caption、inherit
+
+media：all、aural、braille、embossed、handheld、print、projection、screen、tty、tv
+
+候选样式表（基于Gecko内核支持）：alertnate style
+
+@import url(....) media;
+page 37

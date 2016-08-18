@@ -1,0 +1,13 @@
+Sass是一种“CSS预处理器”(css preprocessor)，可以让CSS开发变得简单和可维护。它的基本思想是，用一种专门的编程语言，进行网页样式设计，然后再编译成正常的CSS文件。
+官方文档：http://sass-lang.com/documentation/file.SASS_REFERENCE.html
+SASS用户指南：
+一、什么是SASS
+SASS是一种CSS的开发工具，提供了许多便利的写法，大大节省了设计者的时间，使得CSS的开发，变得简单和可维护。
+二、安装
+2.1 安装Ruby
+SASS是Ruby语言写的，但两者的语法没有关系。
+安装 RubyInstaller 1.9.3（http://rubyinstaller.org/downloads/），安装时选择"Add Ruby executables to your PATH"，Ruby安装的版本最好低于2.X的。
+打开CMD命令行窗口（window键+R键），输入cmd,在命令行窗口中输入gem -v查看安装的版本，如版本显示，说明安装成功。
+2.2 安装SASS
+在CMD命令行窗口中输入gem install sass;
+三、使用

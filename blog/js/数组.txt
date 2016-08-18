@@ -1,0 +1,17 @@
+声明：
+var a = [];//空数组
+var b = [1,2,3];
+
+增加、更新数组
+b[2] = 'three';b-->[1,2,'three']
+b[3] = 'four';b-->[1,2,'three','four']
+b[6] = 'new';b-->[1,2,'three','four',undefined,undefined,'new'];//间隔元素值为undefined
+
+删除元素：删除后值为undefined
+delete b[2];//
+
+数组访问字符串
+var s = 'one';
+s[0];
+s[1];
+s[2];

@@ -1,0 +1,22 @@
+搜索模块：npm search 包名
+
+安装全局指定的包：npm install -g 包名
+安装局部指定的包：npm install 包名
+
+列出已安装模块：npm list
+显示模块详情：npm show 包名
+
+
+查看哪些包可以更新：npm -g outdated
+
+更新局部指定的包：npm update 包名
+更新全部指定的包：npm update -g 包名
+
+卸载全局指定的包：npm uninstall -g 包名
+卸载局部指定的包：npm uninstall 包名
+
+
+注册模块:
+初始化package.json: npm init
+注册模块：npm adduser
+发布模块：npm publish

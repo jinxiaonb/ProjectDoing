@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+<meta name="apple-touch-fullscreen" content="YES">
+<meta name="apple-mobile-web-app-status-bar-style" content="block">
+<title>图片轮播</title>
+<link rel="stylesheet" href="../styles/css/carousel.css">
+<style>
+	body{
+		margin:0;
+		padding:0;
+		background:#333333;
+		overflow:hidden;
+	}
+	#canvas{
+		width:100%;
+		height:100%;
+		overflow:hidden;
+	}
+	ul,li{
+		list-style:none;
+		padding:0;
+		margin:0;
+		overflow:hidden;	
+	}
+	
+	li{
+		/*display:table-cell;
+		vertical-align:middle;	*/
+		
+		display:-webkit-box;
+		-webkit-box-pack:center;
+		-webkit-box-align:center;
+	}
+</style>
+</head>
+
+<body>
+	<!---->
+	<div id="canvas">
+    	<ul>
+        	<li style="height:568px;-webkit-transform:translate3d(0,0,0);position:absolute;">
+            	<img width="320" src="../images/carousel/1.jpg">
+            </li>
+            <li style="height:568px;-webkit-transform:translate3d(320,0,0);position:absolute;">
+            	<img width="320" src="../images/carousel/2.jpg">
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

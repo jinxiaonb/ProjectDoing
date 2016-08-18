@@ -1,0 +1,5 @@
+1、iframe中获得父页面的window对象
+存在跨域访问限制
+父页面：window.parent
+顶层页面：window.top
+适用于所有浏览器

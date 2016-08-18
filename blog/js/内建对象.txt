@@ -1,0 +1,110 @@
+内建对象等价于内建构造器
+内建对象大致分为三类：
+数据封装类对象--Object、Array、Boolean、Number和String
+工具类对象--Math、Date、RegExp等用于提供遍历的对象
+错误类对象--包括一般性错误对象以及其他各种更特殊的错误类对象
+
+Object：所有对象的父级对象
+创建空对象：
+var jx = {}；//对象文本标识法
+var jx = new Object();//Object构造器函数
+包含的方法和属性：
+constructor//构造函数的构造器属性
+toString()//返回该对象的描述字符串
+valueOf()//返回对象自己
+
+Array:构建数组的内建构造器函数，也是一种对象（typeof jx-->object）
+var jx = new Array();
+var jx = [];
+
+//异常现象
+var jx = new Array(单个数字);//创建数字长度的数组
+
+相对于对象特有的一些特殊处：
+属性名从0开始递增，并自动生成数值
+都有length属性
+在父级对象上扩展了内建方法
+
+值得关注的数组方法
+sort()//排序，从小到大
+join(可选字符)//数组中所有元素连接而成的字符串
+slice(start,end)//不修改目标数组的情况下返回其中的某个片段,以0为基数
+splice(start,end,新元素)//修改目标数组，新元素替换修改的数组
+push()//末端添加一个新元素jx[jx.length] = new
+pop()//末端删除一个元素jx.length--
+
+
+
+String对象和基本字符串
+var primitive = "hello";//基本字符串
+typeof primitive-->>"string"
+var obj = new String("world");//对象
+typeof obj-->>"object"
+
+String对象像字符数组
+可以索引obj[0]-->>"w"
+可以用length属性obj.length-->>5
+
+得到String对象的基本类型值
+obj.valueOf()/obj.toString/obj+""
+
+基本类型-->>String对象
+"potato".length/"tomato"[0]/"potato"["potato".length-1]
+
+转换成布尔值是的区别
+Boolean("")-->>false
+Boolean(new String(""))-->>true
+
+var s = new String("jin xiao");
+方法：
+toUpperCase()/toLowerCase()
+
+//搜索字符串
+//基本方法
+charAt(i)//返回指定位置的字符，若不存在，返回""
+s.indexOf('字符',索引)//返回第一次匹配的索引值,第二个参数索引可省略
+s.lastIndexOf('字符',索引)//同上，但从后开始算
+//强大方法
+search()
+match()
+replace()
+
+slice(开始位置,结束位置)//结束位置指的是区间的末端位置，而不是长度
+substring(开始位置，结束位置)//同上
+slice和substring的区别：第二个参数为-1时
+s.slice(1,-1)相当于s.slice(1,s.length-1)
+s.substring(1,-1)相当于s.substring(1,0)
+
+split(分隔符)//分割字符串
+s.split(" ")//
+join(合并符)//合并字符串
+s.join(" ")
+concat(字符串)//追加字符串
+s.concat("nb")
+以上的方法不会改变原始字符的值
+即s.valueOf()-->>"jin xiao"
+
+
+
+Math:只包含一些了方法和属性、用于数学计算的内建对象
+//属性
+Math.PI//
+Math.SQRT2//2的平方根
+Math.E//欧拉常数e
+Math.LN2//2的自然对数
+Math.LN10//10的自然对象
+//方法
+Math.random()//0-1的随机数
+Math.floor()//舍弃
+Math.ceil()//取入
+Math.round()//四舍五入
+Math.max()//数集中的最大值
+Math.min()//数集中的最小值
+Math.pow()//指数运算
+Math.sqrt()//平方根
+Math.sin()//
+Math.cos()//
+Math.atan()//
+
+
+Date:

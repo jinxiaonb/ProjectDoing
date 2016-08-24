@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>publish</title>
+	</head>
+	<body>
+		<script src="publish.js"></script>
+		<script>
+			var testSubscript = pubsub.subscribe('example1', function(topics, data){
+				console.log(topics+": "+data);
+			});
+
+			pubsub.publish('example1', 'hello jinxiao');
+			pubsub.publish('example1',['test','a','b','c']);
+			pubsub.publish('example1',[{'color':'blue'},{'text':'jinxiao'}]);
+
+			setTimeout(function(){
+				pubsub.unsubscribe(testSubscript);
+			},0);
+
+			pubsub.publish('example1','hello again !');
+		</script>
+	</body>
+</html>

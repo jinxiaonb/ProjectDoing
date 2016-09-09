@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+		<title>组件</title>
+	</head>
+	<body>
+		
+		<!-- <div id="demo10">
+			<my-component></my-component>
+
+			<input type="text" v-model="parentMsg">
+			<br>
+
+			<child my-message="parentMsg"></child>
+			<child v-bind:my-message.sync="parentMsg"></child> 双向绑定
+			<child v-bind:my-message.once="parentMsg"></child> 单次绑定
+			<child v-bind:my-message.sync="parentMsg"></child>
+		</div> -->
+
+		<template id="child-template">
+			<input type="text" v-model="msg">
+			<button v-on:click="notify">Dispatch Event</button>
+		</template>
+		
+		<div id="events-example">
+			<p>Messages: {{ messages | json }}</p>
+			<child></child>
+		</div>
+
+		<script src="../node_modules/vue/dist/vue.min.js"></script>
+		<script>
+			Vue.component('child',{
+				template:"#child-template",
+				data:function(){
+					return {msg:"hello"};
+				},
+				methods:{
+					notify:function(){
+						if(this.msg.trim()){
+							this.$dispatch('child-msg',this.msg);
+							this.msg = '';
+						}
+					}
+				}
+			});
+
+			var parent = new Vue({
+				el:"#events-example",
+				data:{
+					messages:[]
+				},
+				events:{
+					'child-msg':function(msg){
+						this.messages.push(msg);
+					}
+				}
+			});
+		</script>
+		<script>
+			// var vm = new Vue({
+			// 	el:"#demo10",
+			// 	data:{
+			// 		checkedNames:[]
+			// 	},
+			// 	methods:{
+					
+			// 	}
+			// });
+
+			// 创建一个组件构造器
+			// var MyComponent = Vue.extend({
+			// 	template:"<div>A custom component!</div>"
+			// });
+
+			// Vue.component('my-component', MyComponent);
+
+
+			// Vue.component('child',{
+			// 	props:['myMessage'],
+			// 	template:'<span>{{ myMessage }}</span>'
+			// });
+
+
+			// new Vue({
+			// 	el:"#demo10"
+			// });
+
+
+			// 局部注册
+			// var Child = Vue.extend({});
+			// var Parent = Vue.extend({
+			// 	template:"",
+			// 	components:{
+			// 		'my-component':Child
+			// 	}
+			// });
+			// 
+			
+		</script>
+	</body>
+</html>

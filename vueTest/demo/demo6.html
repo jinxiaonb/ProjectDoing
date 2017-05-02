@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+		<title>列表渲染</title>
+	</head>
+	<body>
+		
+		<div id="demo6">
+			<ul>
+				<li v-for="item of items">
+				{{ parentMessage }} - {{ $index }} - {{ item.message }}
+				</li>
+				<li v-for="(index, item) in items" track-by="$index">
+					{{ index }} {{ item.message }}
+				</li>
+
+				<template v-for="item of items">
+					<li>{{item.message}}</li>
+					<li class="divider"></li>
+				</template>
+
+				<li v-for="value of object">
+					{{ $key }} - {{ value }}
+				</li>
+				<li v-for="(key, val) of object">
+					{{ key }} - {{ val }}
+				</li>
+			</ul>
+			<div>
+				<span v-for="n in 10">{{ n }}</span>
+			</div>	
+		</div>
+		
+		<!-- 数组变动检测 -->
+		<!-- 变异方法 push()/pop()/shift()/unshift()/splice()/sort()/reverse() -->
+		<!-- 替换 filter()/concat()/slice() -->
+		<!-- 重置某个值：example1.items.$set(0, { childMsg: 'Changed!'}) -->
+		<!-- 删除某个值：this.items.$remove(item) -->
+		
+		<!-- 显示过滤/排序的结果 -->
+		<!-- 1、创建一个计算属性，返回过滤/排序过的数组 -->
+		<!--/2、使用内置的过滤器 filterBy 和 orderBy -->
+
+
+		<script src="../node_modules/vue/dist/vue.min.js"></script>
+		<script>
+			var vm = new Vue({
+				el:"#demo6",
+				data:{
+					parentMessage:'Parent',
+					items:[
+						{ message:'message1' },
+						{ message:'message2' }
+					],
+					object:{
+						firstName:'jin',
+						lastName:'xiao',
+						age:27
+					}
+				}
+			});
+			//console.log(vm);
+		</script>
+	</body>
+</html>

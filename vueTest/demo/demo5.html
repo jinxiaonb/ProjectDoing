@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>条件渲染</title>
+	</head>
+	<body>
+		
+		<div id="demo5">
+			<h1 v-if="ok">Yes</h1>
+			<h1 v-else>No</h1>
+			<h1 v-show="ok">v-show,不支持&lt;template&gt;语法</h1>
+			<h1 v-show="!ok">v-show else</h1>
+			<template v-if="ok">
+				<h1>Title</h1>
+				<p>Paragraph 1</p>
+				<p>Paragraph 2</p>
+			</template>
+		</div>
+		<script src="../node_modules/vue/dist/vue.min.js"></script>
+		<script>
+			var vm = new Vue({
+				el:"#demo5",
+				data:{
+					ok:false,
+					styleObject:{
+						color:'red',
+						fontSize:'13px'
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

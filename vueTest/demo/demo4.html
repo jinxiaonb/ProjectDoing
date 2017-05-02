@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>class与style绑定</title>
+	</head>
+	<body>
+		<!-- <div id="demo4" class="static" v-bind:class="{'class-a':isA,'class-b':isB}" v-bind:style="{ color:activeColor, fontSize:fontSize+'px' }"></div> -->
+		<div id="demo4" class="static" v-bind:class="classObject" v-bind:style="styleObject">demo4</div>
+		<script src="../node_modules/vue/dist/vue.min.js"></script>
+		<script>
+			var vm = new Vue({
+				el:"#demo4",
+				data:{
+					isA:true,
+					isB:false,
+					activeColor:'red',
+					fontSize:30,
+					classObject:{
+						'class-a':true,
+						'class-b':true
+					},
+					styleObject:{
+						color:'red',
+						fontSize:'13px'
+					}
+				}
+			});
+		</script>
+	</body>
+</html>
